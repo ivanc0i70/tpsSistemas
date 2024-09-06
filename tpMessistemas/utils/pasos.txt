@@ -1,0 +1,84 @@
+Checkpoints:
+
+1 FECHA:
+-----------------------------------------------------------
+Familiarizarse con Linux y su consola, el entorno de desarrollo y el repositorio.
+Aprender a utilizar las Commons, principalmente las funciones para listas, 
+archivos de configuración y logs.
+Definir el Protocolo de Comunicación.
+Todos los módulos están creados y son capaces de establecer conexiones entre sí.
+
+-----------------------------------------------------------
+
+2 FECHA:
+-----------------------------------------------------------
+Módulo Kernel:
+Es capaz de crear un PCB y planificarlo por FIFO y RR.
+Es capaz de enviar un proceso a la CPU para que sea procesado.
+
+Módulo CPU:
+Se conecta a Kernel y recibe un PCB.
+Es capaz de conectarse a la memoria y solicitar las instrucciones.
+Es capaz de ejecutar un ciclo básico de instrucción.
+Es capaz de resolver las operaciones: SET, SUM, SUB, JNZ e IO_GEN_SLEEP.
+
+Módulo Memoria:
+Se encuentra creado y acepta las conexiones.
+Es capaz de abrir los archivos de pseudocódigo y envía las instrucciones al CPU.
+
+Módulo Interfaz I/O:
+Se encuentra desarrollada la Interfaz Genérica.
+
+-----------------------------------------------------------
+
+3 FECHA:
+-----------------------------------------------------------
+Módulo Kernel:
+Es capaz de planificar por VRR.
+Es capaz de realizar manejo de recursos.
+Es capaz de manejar el planificador de largo plazo
+
+Módulo CPU:
+Es capaz de resolver las operaciones: MOV_IN, MOV_OUT, RESIZE, COPY_STRING, IO_STDIN_READ, IO_STDOUT_WRITE.
+
+Módulo Memoria:
+Se encuentra completamente desarrollada.
+
+Módulo Interfaz I/O:
+Se encuentran desarrolladas las interfaces STDIN y STDOUT.
+
+-----------------------------------------------------------
+
+ENTREGA FINAL:
+
+FECHAS:  13/07/2024 - 27/07/2024 - 03/08/2024 
+Objetivos:
+    Finalizar el desarrollo de todos los procesos.
+    Probar de manera intensiva el TP en un entorno distribuido.
+    Todos los componentes del TP ejecutan los requerimientos de forma integral.
+
+-----------------------------------------------------------
+
+CONSIDERACIONES.
+
+En primer lugar, el sistema en sí tiene que estar "levantado" por completo antes de iniciar un proceso,
+mínimamente tener los módulos Memoria (esperando mensajes de CPU y Kernel), 
+CPU (conectado a Memoria y esperando mensajes de Kernel) 
+y por último el Kernel (conectado a CPU y Memoria).
+
+Al tener modulos que actuaran como CLIENTE Y SERVIDOR, deberan implementarse hilos para
+lograr dicha implementacion en la comunicacion entre ellos.
+
+--------------------------------------------------------------
+
+El comando "INICIAR_PROCESO" es el punto de entrada al sistema:
+
+Una vez creado un proceso en NEW, el mismo deberá ser planificado por el Kernel, 
+primero por el planificador de largo plazo (NEW -> READY), 
+en esa transición seguramente le pida al módulo Memoria que cree sus estructuras necesarias.
+
+Teniendo al proceso en READY, el planificador de corto plazo (READY -> EXEC) 
+le pedirá a la CPU que ejecute ese proceso.
+
+Una vez la CPU tiene los datos necesarios, 
+le pedirá lo que necesite a la Memoria para poder ejecutarlo (por lo pronto, las instrucciones en la etapa "fetch")

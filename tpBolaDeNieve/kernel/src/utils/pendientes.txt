@@ -1,0 +1,5 @@
+================================================[MODULO: Kernel]=============================================================
+
+Misceleano:
+. Implementar lo de las listas para las interfaces
+

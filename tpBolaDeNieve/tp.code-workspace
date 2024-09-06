@@ -1,0 +1,39 @@
+{
+	"settings": {
+		"debug.onTaskErrors": "abort",
+		"files.associations": {
+			"*.h": "c",
+			"*.tcc": "c",
+			"memory_resource": "c",
+			"memory": "c",
+			"ostream": "c",
+			"streambuf": "c",
+			"cmath": "c",
+			"array": "c",
+			"string": "c",
+			"vector": "c",
+			"string_view": "c",
+			"functional": "c",
+			"limits": "c",
+			"tuple": "c"
+		},
+		"C_Cpp.errorSquiggles": "disabled",
+	},
+	"folders": [
+		{
+			"path": "kernel"
+		},
+		{
+			"path": "cpu"
+		},
+		{
+			"path": "memoria"
+		},
+		{
+			"path": "entradasalida"
+		},
+		{
+			"path": "utils"
+		}
+	]
+}
